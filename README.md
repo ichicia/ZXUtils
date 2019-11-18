@@ -104,7 +104,14 @@ A commonly used tool library for Android<br>
     先导入依赖包<br>
     
     ```
-    compile 'com.github.StannyBing:ZXUtils:2.3.0'
+    implementation 'com.github.StannyBing:ZXUtils:2.3.0'
+    如AS提示依赖冲突，可以使用以下方式
+    implementation ('com.github.StannyBing:ZXUtils:2.3.0'){
+            exclude group: 'com.android.support'
+            exclude group: 'com.squareup.okhttp3'
+        }
+    ZXUtils中集成了okhttp3，创建了简易的网络请求工具，如果您项目中已使用，可以排除掉
+    In zxutils, okhttp3 is integrated and a simple network request tool is created. If you have used it in your project, you can exclude it
     ```
     
     注意需要在项目的build里面添加以下代码<br>
